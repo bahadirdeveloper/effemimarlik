@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Allow CSS and JS files
+Allow: /css/
+Allow: /js/
+Allow: /görseller/
+Allow: /videolar/
+
+# Disallow admin or private directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+Sitemap: https://www.effemimarlik.com/sitemap.xml
