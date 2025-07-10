@@ -2194,3 +2194,35 @@ body::before {
         grid-template-columns: 1fr;
     }
 }
+
+/* University Info Styles */
+.education-section {
+    margin-bottom: 1rem;
+}
+
+.university-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.university-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px;
+}
+
+.university-name {
+    color: #e2e8f0;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
