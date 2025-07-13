@@ -11,9 +11,13 @@ if (navToggle) {
 
 // Close menu when clicking on a link
 document.querySelectorAll('.nav__link').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
+    link.addEventListener('click', (e) => {
+        // Sadece aynı sayfadaki anchor linkler için menüyü kapat
+        if (link.getAttribute('href').startsWith('#')) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+        // Diğer linkler için normal davranışı sürdür
     });
 });
 

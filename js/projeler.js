@@ -33,34 +33,26 @@ const projectImages = {
         'WhatsApp Image 2025-06-21 at 12.03.09.jpeg'
     ],
     'saya-house': [
-        'WhatsApp Image 2025-06-19 at 19.27.02.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.27.03.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.28.12.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.28.15.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.28.16.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.28.7.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.10.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.40.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.43.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.44.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.45.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.46.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.47.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.48.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.49.jpeg',
-        'WhatsApp Image 2025-06-19 at 19.34.99.jpeg'
+        'WhatsApp Image 2025-06-19 at 19.30.54 (1)_1750355295128.jpeg',
+        'WhatsApp Image 2025-06-19 at 19.30.54 (2)_1750355295129.jpeg',
+        'WhatsApp Image 2025-06-19 at 19.30.54 (3)_1750355295129.jpeg',
+        'WhatsApp Image 2025-06-19 at 19.30.54 (4)_1750355295129.jpeg',
+        'WhatsApp Image 2025-06-19 at 19.30.54_1750355295129.jpeg',
+        'WhatsApp Image 2025-06-19 at 19.30.55 (1)_1750366761589.jpeg',
+        'WhatsApp Image 2025-06-19 at 19.30.55_1750355295132.jpeg',
+        'WhatsApp Image 2025-06-19 at 19.34.40_1750355295131.jpeg'
     ],
-    'saya-park-detay': [
+    'saya-park': [
         'WhatsApp Image 2025-07-09 at 21.19.31.jpeg',
-        'WhatsApp Image 2025-07-09 at 21.19.310.jpeg',
-        'WhatsApp Image 2025-07-09 at 21.19.312.jpeg',
         'WhatsApp Image 2025-07-09 at 21.19.32.jpeg',
         'WhatsApp Image 2025-07-09 at 21.19.33.jpeg',
         'WhatsApp Image 2025-07-09 at 21.19.34.jpeg',
         'WhatsApp Image 2025-07-09 at 21.19.35.jpeg',
         'WhatsApp Image 2025-07-09 at 21.19.36.jpeg',
         'WhatsApp Image 2025-07-09 at 21.19.37.jpeg',
-        'WhatsApp Image 2025-07-09 at 21.19.38.jpeg'
+        'WhatsApp Image 2025-07-09 at 21.19.38.jpeg',
+        'WhatsApp Image 2025-07-09 at 21.19.310.jpeg',
+        'WhatsApp Image 2025-07-09 at 21.19.312.jpeg'
     ],
     'sezin-hanim': [
         'WhatsApp Image 2025-06-19 at 19.27.02.jpeg',
@@ -91,7 +83,7 @@ async function getProjectImages(projectName) {
 
 // Görselleri yükle
 async function loadProjectImages() {
-    const projects = ['bein-tisan', 'hill-garden', 'lotus-park', 'saya-house', 'saya-park-detay', 'sezin-hanim'];
+    const projects = ['bein-tisan', 'hill-garden', 'lotus-park', 'saya-house', 'saya-park', 'sezin-hanim'];
     
     for (const project of projects) {
         await loadImagesForProject(project);

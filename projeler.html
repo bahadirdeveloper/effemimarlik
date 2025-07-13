@@ -324,7 +324,7 @@
             <div class="nav-logo">
                 <img src="görseller/logo.png" alt="Effe Mimarlık" class="logo">
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
                     <a href="index.html" class="nav-link">Ana Sayfa</a>
                 </li>
@@ -344,6 +344,11 @@
                     <a href="iletisim.html" class="nav-link">İletişim</a>
                 </li>
             </ul>
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
     
@@ -456,7 +461,7 @@
                     <h2 class="project-title">Saya Park</h2>
                     <p class="project-subtitle">Yeşil Yaşam Konsepti</p>
                 </div>
-                <div class="gallery" id="saya-park-detay-gallery">
+                <div class="gallery" id="saya-park-gallery">
                     <!-- Görseller JavaScript ile yüklenecek -->
                 </div>
                 <div class="project-stats">
@@ -470,7 +475,7 @@
                     </div>
                 </div>
                 <div class="view-all-btn">
-                    <button onclick="openProjectModal('saya-park-detay')">Tüm Görselleri Görüntüle</button>
+                    <button onclick="openProjectModal('saya-park')">Tüm Görselleri Görüntüle</button>
                 </div>
             </div>
 
@@ -511,5 +516,7 @@
     </div>
 
     <script src="js/projeler.js"></script>
+    <script src="js/main.js"></script>
 </body>
+</html>
 </html>
