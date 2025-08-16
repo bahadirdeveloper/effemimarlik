@@ -172,11 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProjectImages();
     
     // Modal kapatma event'leri
-    document.querySelector('.close').onclick = closeModal;
+    const closeBtn = document.querySelector('.close');
+    if (closeBtn) {
+        closeBtn.onclick = closeModal;
+    }
     
     window.onclick = (event) => {
         const modal = document.getElementById('imageModal');
-        if (event.target === modal) {
+        if (modal && event.target === modal) {
             closeModal();
         }
     };
@@ -184,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Klavye ile navigasyon
     document.addEventListener('keydown', (e) => {
         const modal = document.getElementById('imageModal');
-        if (modal.style.display === 'block') {
+        if (modal && modal.style.display === 'block') {
             if (e.key === 'ArrowLeft') changeImage(-1);
             if (e.key === 'ArrowRight') changeImage(1);
             if (e.key === 'Escape') closeModal();
@@ -198,13 +201,17 @@ function updateProjectStats() {
         'bein-tisan': 8,
         'hill-garden': 9,
         'lotus-park': 9,
-        'saya-house': 16,
-        'saya-park-detay': 10,
+        'saya-house': 8,
+        'saya-park': 10,
         'sezin-hanim': 8
     };
-    
+
     Object.keys(projectCounts).forEach(project => {
-        const statElement = document.querySelector(`#${project}-gallery`).closest('.project-card').querySelector('.stat-number');
+        const galleryElement = document.querySelector(`#${project}-gallery`);
+        if (!galleryElement) return;
+        const cardElement = galleryElement.closest('.project-card');
+        if (!cardElement) return;
+        const statElement = cardElement.querySelector('.stat-number');
         if (statElement) {
             statElement.textContent = projectCounts[project];
         }
