@@ -10,5 +10,7 @@ Allow: /videolar/
 # Disallow admin or private directories (if any)
 # Disallow: /admin/
 # Disallow: /private/
+Disallow: /projeler-old.html
+Disallow: /test-images.html
 
 Sitemap: https://www.effemimarlik.com/sitemap.xml

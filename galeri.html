@@ -13,18 +13,55 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.effemimarlik.com/galeri.html">
     <meta property="og:image" content="https://www.effemimarlik.com/görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.00.jpeg">
+    <meta property="og:image:alt" content="Effe Mimarlık galeri sayfası kapak görseli">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Effe Mimarlık">
+    <meta name="twitter:image" content="https://www.effemimarlik.com/görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.00.jpeg">
     <link rel="canonical" href="https://www.effemimarlik.com/galeri.html">
+    <link rel="alternate" href="https://www.effemimarlik.com/galeri.html" hreflang="tr">
+    <meta name="theme-color" content="#0b1b2b">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Effe Mimarlık Galeri",
+        "description": "Effe Mimarlık projelerine ait fotoğraf ve video galerisi",
+        "url": "https://www.effemimarlik.com/galeri.html"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://www.effemimarlik.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Galeri & Video",
+                "item": "https://www.effemimarlik.com/galeri.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
 <header class="header">
-        <nav class="nav">
+        <nav class="nav" aria-label="Ana navigasyon">
             <div class="nav__container">
                 <div class="nav__logo">
-                    <img src="görseller/logo.png" alt="Effe Mimarlık Logo" class="nav__logo-img">
+                    <img src="görseller/logo.png" alt="Effe Mimarlık Logo" class="nav__logo-img" loading="eager" decoding="async">
                 </div>
                 <ul class="nav__menu" id="nav-menu">
                     <li class="nav__item">
@@ -46,16 +83,22 @@
                         <a href="iletisim.html" class="nav__link">İletişim</a>
                     </li>
                 </ul>
-                <div class="nav__toggle" id="nav-toggle">
+                <button type="button" class="nav__toggle" id="nav-toggle" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
 
     <main>
+        <nav class="breadcrumb" aria-label="İçerik yolu">
+            <ol>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li aria-current="page">Galeri &amp; Video</li>
+            </ol>
+        </nav>
         <section class="page-header">
             <div class="container">
                 <h1>Galeri & Video</h1>
@@ -136,19 +179,26 @@
         document.addEventListener('DOMContentLoaded', function() {
             const galleryGrid = document.getElementById('gallery-grid');
 
-            for (const project in projectImages) {
-                projectImages[project].forEach(image => {
+            Object.entries(PROJECT_IMAGE_MAP).forEach(([projectKey, images]) => {
+                const projectTitle = PROJECT_TITLES[projectKey] || projectKey.replace(/-/g, ' ');
+
+                images.forEach((imageName, index) => {
                     const galleryItem = document.createElement('div');
                     galleryItem.className = 'gallery-item';
+                    galleryItem.setAttribute('role', 'button');
+                    galleryItem.setAttribute('tabindex', '0');
+                    galleryItem.setAttribute('aria-label', `${projectTitle} proje görseli ${index + 1}`);
 
                     const img = document.createElement('img');
-                    img.src = `görseller/projeler/${project}/${image}`;
-                    img.alt = `${project.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} - ${image}`;
+                    img.src = `görseller/projeler/${projectKey}/${imageName}`;
+                    img.alt = `${projectTitle} proje görseli ${index + 1}`;
+                    img.loading = 'lazy';
+                    img.decoding = 'async';
 
                     const overlay = document.createElement('div');
                     overlay.className = 'overlay';
                     const span = document.createElement('span');
-                    span.textContent = project.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                    span.textContent = projectTitle;
                     overlay.appendChild(span);
 
                     galleryItem.appendChild(img);
@@ -160,7 +210,7 @@
     </script>
     
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/905449781818" class="whatsapp-button" target="_blank" title="WhatsApp ile iletişim kur">
+    <a href="https://wa.me/905449781818" class="whatsapp-button" target="_blank" rel="noopener" title="WhatsApp ile iletişim kur">
         📞
     </a>
 </body>

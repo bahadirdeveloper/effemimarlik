@@ -13,10 +13,16 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.effemimarlik.com">
     <meta property="og:image" content="https://www.effemimarlik.com/görseller/logo.png">
+    <meta property="og:image:alt" content="Effe Mimarlık kurumsal logosu">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Effe Mimarlık">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Effe Mimarlık - Silifke Mersin Mimarlık Ofisi">
     <meta name="twitter:description" content="Effe Mimarlık Silifke Mersin'de modern mimarlık projeleri, villa tasarımı ve konut mimarisi hizmetleri sunmaktadır.">
+    <meta name="twitter:image" content="https://www.effemimarlik.com/görseller/logo.png">
     <link rel="canonical" href="https://www.effemimarlik.com">
+    <link rel="alternate" href="https://www.effemimarlik.com" hreflang="tr">
+    <meta name="theme-color" content="#0b1b2b">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,6 +91,21 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Effe Mimarlık",
+        "url": "https://www.effemimarlik.com",
+        "inLanguage": "tr-TR",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.effemimarlik.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Effe Mimarlık",
         "image": "https://www.effemimarlik.com/görseller/logo.png",
@@ -142,10 +163,10 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav">
+        <nav class="nav" aria-label="Ana navigasyon">
             <div class="nav__container">
                 <div class="nav__logo">
-                    <img src="görseller/logo.png" alt="Effe Mimarlık - Silifke Mersin Mimarlık Ofisi Logo" class="nav__logo-img">
+                    <img src="görseller/logo.png" alt="Effe Mimarlık - Silifke Mersin Mimarlık Ofisi Logo" class="nav__logo-img" loading="eager" decoding="async">
                 </div>
                 <ul class="nav__menu" id="nav-menu">
                     <li class="nav__item">
@@ -167,11 +188,11 @@
                         <a href="iletisim.html" class="nav__link">İletişim</a>
                     </li>
                 </ul>
-                <div class="nav__toggle" id="nav-toggle">
+                <button type="button" class="nav__toggle" id="nav-toggle" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="nav-menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </nav>
     </header>
@@ -181,21 +202,21 @@
         <section class="hero" id="ana-sayfa">
             <div class="hero__slider">
                 <div class="hero__slide active">
-                    <img src="görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.00.jpeg" alt="Effe Mimarlık Hill Garden Projesi - Modern Villa Tasarımı Silifke" class="hero__image">
+                    <img src="görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.00.jpeg" alt="Effe Mimarlık Hill Garden Projesi - Modern Villa Tasarımı Silifke" class="hero__image" loading="eager" fetchpriority="high">
                     <div class="hero__content">
                         <h1 class="hero__title">EFFE PROJE MİMARLIK</h1>
                         <p class="hero__subtitle">Hill Garden - Modern yaşam alanları</p>
                     </div>
                 </div>
                 <div class="hero__slide">
-                    <img src="görseller/projeler/bein-tisan/WhatsApp Image 2025-06-21 at 12.09.51.jpeg" alt="Bien Tisan Projesi" class="hero__image">
+                    <img src="görseller/projeler/bein-tisan/WhatsApp Image 2025-06-21 at 12.09.51.jpeg" alt="Bien Tisan Projesi mimari görseli" class="hero__image" loading="lazy" decoding="async">
                     <div class="hero__content">
                         <h1 class="hero__title">Bien Tisan</h1>
                         <p class="hero__subtitle">Çağdaş mimari yaklaşım</p>
                     </div>
                 </div>
                 <div class="hero__slide">
-                    <img src="görseller/projeler/lotus-park/WhatsApp Image 2025-06-21 at 12.03.00.jpeg" alt="Lotus Park Projesi" class="hero__image">
+                    <img src="görseller/projeler/lotus-park/WhatsApp Image 2025-06-21 at 12.03.00.jpeg" alt="Lotus Park Projesi mimari görseli" class="hero__image" loading="lazy" decoding="async">
                     <div class="hero__content">
                         <h1 class="hero__title">Lotus Park</h1>
                         <p class="hero__subtitle">İnovatif yapı çözümleri</p>
@@ -203,8 +224,8 @@
                 </div>
             </div>
             <div class="hero__controls">
-                <button class="hero__btn hero__btn--prev" id="prev-slide">‹</button>
-                <button class="hero__btn hero__btn--next" id="next-slide">›</button>
+                <button class="hero__btn hero__btn--prev" id="prev-slide" aria-label="Önceki görsel">‹</button>
+                <button class="hero__btn hero__btn--next" id="next-slide" aria-label="Sonraki görsel">›</button>
             </div>
         </section>
 
@@ -245,21 +266,21 @@
                 <h2 class="section__title">Projelerimiz</h2>
                 <div class="projects-preview__grid">
                     <div class="project-card">
-                        <img src="görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.01.jpeg" alt="Hill Garden" class="project-card__image">
+                        <img src="görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.01.jpeg" alt="Hill Garden Projesi dış cephe tasarımı" class="project-card__image" loading="lazy" decoding="async">
                         <div class="project-card__content">
                             <h3 class="project-card__title">Hill Garden</h3>
                             <p class="project-card__description">Modern yaşam alanları</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="görseller/projeler/bein-tisan/WhatsApp Image 2025-06-21 at 12.09.52.jpeg" alt="Bien Tisan" class="project-card__image">
+                        <img src="görseller/projeler/bein-tisan/WhatsApp Image 2025-06-21 at 12.09.52.jpeg" alt="Bien Tisan Projesi dış cephe tasarımı" class="project-card__image" loading="lazy" decoding="async">
                         <div class="project-card__content">
                             <h3 class="project-card__title">Bien Tisan</h3>
                             <p class="project-card__description">Çağdaş mimari yaklaşım</p>
                         </div>
                     </div>
                     <div class="project-card">
-                        <img src="görseller/projeler/lotus-park/WhatsApp Image 2025-06-21 at 12.03.01.jpeg" alt="Lotus Park" class="project-card__image">
+                        <img src="görseller/projeler/lotus-park/WhatsApp Image 2025-06-21 at 12.03.01.jpeg" alt="Lotus Park Projesi yeşil alan tasarımı" class="project-card__image" loading="lazy" decoding="async">
                         <div class="project-card__content">
                             <h3 class="project-card__title">Lotus Park</h3>
                             <p class="project-card__description">Doğayla uyumlu tasarım</p>
@@ -330,7 +351,7 @@
     <script src="js/main.js"></script>
     
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/905449781818" class="whatsapp-button" target="_blank" title="WhatsApp ile iletişim kur">
+    <a href="https://wa.me/905449781818" class="whatsapp-button" target="_blank" rel="noopener" title="WhatsApp ile iletişim kur">
         📞
     </a>
 </body>

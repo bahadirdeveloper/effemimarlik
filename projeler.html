@@ -3,15 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projelerimiz - Effe Mimarlık</title>
+    <title>Projelerimiz - Effe Mimarlık Silifke Mersin Mimarlık Referansları</title>
+    <meta name="description" content="Effe Mimarlık'ın Silifke ve Mersin'de tamamladığı Hill Garden, Bien Tisan, Lotus Park, Saya Park ve Sezin Hanım projelerini keşfedin.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.effemimarlik.com/projeler.html">
+    <link rel="alternate" href="https://www.effemimarlik.com/projeler.html" hreflang="tr">
+    <meta property="og:title" content="Effe Mimarlık Projeler - Silifke ve Mersin Referansları">
+    <meta property="og:description" content="Hill Garden, Bien Tisan, Lotus Park ve diğer mimarlık projelerimizi inceleyin.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.effemimarlik.com/projeler.html">
+    <meta property="og:image" content="https://www.effemimarlik.com/görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.00.jpeg">
+    <meta property="og:image:alt" content="Effe Mimarlık proje portföyünden Hill Garden projesi">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Effe Mimarlık">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Effe Mimarlık Projeler - Silifke ve Mersin">
+    <meta name="twitter:description" content="Effe Mimarlık proje portföyünü keşfedin.">
+    <meta name="twitter:image" content="https://www.effemimarlik.com/görseller/projeler/hill-garden/WhatsApp Image 2025-06-19 at 19.42.00.jpeg">
+    <meta name="theme-color" content="#0b1b2b">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projeler.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Effe Mimarlık Projeler",
+        "description": "Effe Mimarlık'ın Silifke ve Mersin'deki seçili projeleri",
+        "url": "https://www.effemimarlik.com/projeler.html"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Ana Sayfa",
+                "item": "https://www.effemimarlik.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projeler",
+                "item": "https://www.effemimarlik.com/projeler.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Ana navigasyon">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="görseller/logo.png" alt="Effe Mimarlık" class="logo">
+                <img src="görseller/logo.png" alt="Effe Mimarlık" class="logo" loading="eager" decoding="async">
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
@@ -33,14 +85,20 @@
                     <a href="iletisim.html" class="nav-link">İletişim</a>
                 </li>
             </ul>
-            <div class="nav__toggle" id="nav-toggle">
+            <button type="button" class="nav__toggle" id="nav-toggle" aria-label="Menüyü aç veya kapat" aria-expanded="false" aria-controls="nav-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
-    
+    <nav class="breadcrumb" aria-label="İçerik yolu">
+        <ol>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li aria-current="page">Projeler</li>
+        </ol>
+    </nav>
+
     <div class="container">
         <div class="header">
             <h1>Projelerimiz</h1>
@@ -49,7 +107,7 @@
 
         <div class="projects-grid">
             <!-- Bien Tisan -->
-            <div class="project-card">
+            <div class="project-card" data-project="bein-tisan">
                 <div class="project-header">
                     <h2 class="project-title">Bien Tisan</h2>
                     <p class="project-subtitle">Çağdaş Mimari Yaklaşım</p>
@@ -59,7 +117,7 @@
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <div class="stat-number">8</div>
+                        <div class="stat-number" data-stat="image-count">8</div>
                         <div class="stat-label">Görsel</div>
                     </div>
                     <div class="stat">
@@ -68,12 +126,12 @@
                     </div>
                 </div>
                 <div class="view-all-btn">
-                    <button onclick="openProjectModal('bein-tisan')">Tüm Görselleri Görüntüle</button>
+                    <button type="button" onclick="openProjectModal('bein-tisan')">Tüm Görselleri Görüntüle</button>
                 </div>
             </div>
 
             <!-- Hill Garden -->
-            <div class="project-card">
+            <div class="project-card" data-project="hill-garden">
                 <div class="project-header">
                     <h2 class="project-title">Hill Garden</h2>
                     <p class="project-subtitle">Modern Yaşam Alanları</p>
@@ -83,7 +141,7 @@
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <div class="stat-number">9</div>
+                        <div class="stat-number" data-stat="image-count">9</div>
                         <div class="stat-label">Görsel</div>
                     </div>
                     <div class="stat">
@@ -92,12 +150,12 @@
                     </div>
                 </div>
                 <div class="view-all-btn">
-                    <button onclick="openProjectModal('hill-garden')">Tüm Görselleri Görüntüle</button>
+                    <button type="button" onclick="openProjectModal('hill-garden')">Tüm Görselleri Görüntüle</button>
                 </div>
             </div>
 
             <!-- Lotus Park -->
-            <div class="project-card">
+            <div class="project-card" data-project="lotus-park">
                 <div class="project-header">
                     <h2 class="project-title">Lotus Park</h2>
                     <p class="project-subtitle">Doğayla Uyumlu Tasarım</p>
@@ -107,7 +165,7 @@
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <div class="stat-number">9</div>
+                        <div class="stat-number" data-stat="image-count">9</div>
                         <div class="stat-label">Görsel</div>
                     </div>
                     <div class="stat">
@@ -116,12 +174,12 @@
                     </div>
                 </div>
                 <div class="view-all-btn">
-                    <button onclick="openProjectModal('lotus-park')">Tüm Görselleri Görüntüle</button>
+                    <button type="button" onclick="openProjectModal('lotus-park')">Tüm Görselleri Görüntüle</button>
                 </div>
             </div>
 
             <!-- Saya House -->
-            <div class="project-card">
+            <div class="project-card" data-project="saya-house">
                 <div class="project-header">
                     <h2 class="project-title">Saya House</h2>
                     <p class="project-subtitle">Şehir Yaşamında Konfor</p>
@@ -131,7 +189,7 @@
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <div class="stat-number">8</div>
+                        <div class="stat-number" data-stat="image-count">8</div>
                         <div class="stat-label">Görsel</div>
                     </div>
                     <div class="stat">
@@ -140,12 +198,12 @@
                     </div>
                 </div>
                 <div class="view-all-btn">
-                    <button onclick="openProjectModal('saya-house')">Tüm Görselleri Görüntüle</button>
+                    <button type="button" onclick="openProjectModal('saya-house')">Tüm Görselleri Görüntüle</button>
                 </div>
             </div>
 
             <!-- Saya Park -->
-            <div class="project-card">
+            <div class="project-card" data-project="saya-park">
                 <div class="project-header">
                     <h2 class="project-title">Saya Park</h2>
                     <p class="project-subtitle">Yeşil Yaşam Konsepti</p>
@@ -155,7 +213,7 @@
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <div class="stat-number">10</div>
+                        <div class="stat-number" data-stat="image-count">10</div>
                         <div class="stat-label">Görsel</div>
                     </div>
                     <div class="stat">
@@ -164,12 +222,12 @@
                     </div>
                 </div>
                 <div class="view-all-btn">
-                    <button onclick="openProjectModal('saya-park')">Tüm Görselleri Görüntüle</button>
+                    <button type="button" onclick="openProjectModal('saya-park')">Tüm Görselleri Görüntüle</button>
                 </div>
             </div>
 
             <!-- Sezin Hanım -->
-            <div class="project-card">
+            <div class="project-card" data-project="sezin-hanim">
                 <div class="project-header">
                     <h2 class="project-title">Sezin Hanım</h2>
                     <p class="project-subtitle">Zarif Mimari Çözümler</p>
@@ -179,7 +237,7 @@
                 </div>
                 <div class="project-stats">
                     <div class="stat">
-                        <div class="stat-number">8</div>
+                        <div class="stat-number" data-stat="image-count">8</div>
                         <div class="stat-label">Görsel</div>
                     </div>
                     <div class="stat">
@@ -188,24 +246,24 @@
                     </div>
                 </div>
                 <div class="view-all-btn">
-                    <button onclick="openProjectModal('sezin-hanim')">Tüm Görselleri Görüntüle</button>
+                    <button type="button" onclick="openProjectModal('sezin-hanim')">Tüm Görselleri Görüntüle</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal -->
-    <div id="imageModal" class="modal">
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modalImg" src="" alt="">
-            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-            <button class="next" onclick="changeImage(1)">&#10095;</button>
+            <button type="button" class="close" aria-label="Galeri penceresini kapat">&times;</button>
+            <h2 id="modalTitle" class="visually-hidden">Proje galerisi</h2>
+            <img id="modalImg" src="" alt="" loading="lazy" decoding="async">
+            <button class="prev" type="button" aria-label="Önceki görsel" onclick="changeImage(-1)">&#10094;</button>
+            <button class="next" type="button" aria-label="Sonraki görsel" onclick="changeImage(1)">&#10095;</button>
         </div>
     </div>
 
     <script src="js/projeler.js"></script>
     <script src="js/main.js"></script>
 </body>
-</html>
 </html>

@@ -1,5 +1,5 @@
 // Proje görselleri için veri yapısı
-const projectImages = {
+const PROJECT_IMAGE_MAP = {
     'bein-tisan': [
         'WhatsApp Image 2025-06-21 at 12.09.10.jpeg',
         'WhatsApp Image 2025-06-21 at 12.09.51.jpeg',
@@ -66,15 +66,22 @@ const projectImages = {
     ]
 };
 
+const PROJECT_TITLES = {
+    'bein-tisan': 'Bien Tisan',
+    'hill-garden': 'Hill Garden',
+    'lotus-park': 'Lotus Park',
+    'saya-house': 'Saya House',
+    'saya-park': 'Saya Park',
+    'sezin-hanim': 'Sezin Hanım'
+};
+
 let currentProject = '';
 let currentImageIndex = 0;
 
 // Klasör içindeki tüm görsel dosyalarını al
 async function getProjectImages(projectName) {
     try {
-        // Bu kısım sunucu tarafında çalışacak bir API çağrısı olacak
-        // Şimdilik statik veri kullanıyoruz
-        return projectImages[projectName] || [];
+        return PROJECT_IMAGE_MAP[projectName] || [];
     } catch (error) {
         console.error('Görseller yüklenirken hata:', error);
         return [];
@@ -99,27 +106,45 @@ async function loadImagesForProject(projectName) {
     // İlk 4 görseli galeriye ekle
     const displayImages = images.slice(0, 4);
     
+    const projectTitle = PROJECT_TITLES[projectName] || projectName;
+
     displayImages.forEach((imageName, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'gallery-item';
-        galleryItem.onclick = () => openImageModal(projectName, index);
+        const openHandler = () => openImageModal(projectName, index);
+        galleryItem.onclick = openHandler;
+        galleryItem.setAttribute('role', 'button');
+        galleryItem.setAttribute('tabindex', '0');
+        galleryItem.setAttribute('aria-label', `${projectTitle} proje görseli ${index + 1}`);
+
+        galleryItem.addEventListener('keypress', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openHandler();
+            }
+        });
         
         const img = document.createElement('img');
         img.src = `görseller/projeler/${projectName}/${imageName}`;
-        img.alt = `${projectName} - ${imageName}`;
+        img.alt = `${projectTitle} proje görseli ${index + 1}`;
         img.loading = 'lazy';
+        img.decoding = 'async';
         
         img.onerror = () => {
             // Görsel yüklenemezse placeholder göster
             img.src = createPlaceholder();
+            img.alt = `${projectTitle} görseli yüklenemedi`;
         };
         
         galleryItem.appendChild(img);
         gallery.appendChild(galleryItem);
     });
-    
-    // Tüm görselleri project images'e kaydet
-    projectImages[projectName] = images;
+
+    const card = gallery.closest('.project-card');
+    const countElement = card?.querySelector('[data-stat="image-count"]');
+    if (countElement) {
+        countElement.textContent = images.length;
+    }
 }
 
 function createPlaceholder() {
@@ -131,6 +156,7 @@ function openProjectModal(projectName) {
     currentImageIndex = 0;
     updateModalImage();
     document.getElementById('imageModal').style.display = 'block';
+    updateModalTitle();
 }
 
 function openImageModal(projectName, imageIndex) {
@@ -138,20 +164,22 @@ function openImageModal(projectName, imageIndex) {
     currentImageIndex = imageIndex;
     updateModalImage();
     document.getElementById('imageModal').style.display = 'block';
+    updateModalTitle();
 }
 
 function updateModalImage() {
     const modalImg = document.getElementById('modalImg');
-    const images = projectImages[currentProject];
+    const images = PROJECT_IMAGE_MAP[currentProject];
     
     if (images && images[currentImageIndex]) {
         modalImg.src = `görseller/projeler/${currentProject}/${images[currentImageIndex]}`;
-        modalImg.alt = `${currentProject} - ${images[currentImageIndex]}`;
+        const projectTitle = PROJECT_TITLES[currentProject] || currentProject;
+        modalImg.alt = `${projectTitle} proje görseli ${currentImageIndex + 1}`;
     }
 }
 
 function changeImage(direction) {
-    const images = projectImages[currentProject];
+    const images = PROJECT_IMAGE_MAP[currentProject];
     if (!images || images.length === 0) return;
     
     currentImageIndex += direction;
@@ -160,6 +188,7 @@ function changeImage(direction) {
     if (currentImageIndex >= images.length) currentImageIndex = 0;
     
     updateModalImage();
+    updateModalTitle();
 }
 
 // Modal kapatma
@@ -167,12 +196,22 @@ function closeModal() {
     document.getElementById('imageModal').style.display = 'none';
 }
 
+function updateModalTitle() {
+    const modalTitle = document.getElementById('modalTitle');
+    if (!modalTitle) return;
+    const projectTitle = PROJECT_TITLES[currentProject] || currentProject;
+    modalTitle.textContent = `${projectTitle} proje galerisi`;
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     loadProjectImages();
     
     // Modal kapatma event'leri
-    document.querySelector('.close').onclick = closeModal;
+    const closeButton = document.querySelector('.close');
+    if (closeButton) {
+        closeButton.onclick = closeModal;
+    }
     
     window.onclick = (event) => {
         const modal = document.getElementById('imageModal');
@@ -191,22 +230,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-// Proje görsel sayılarını güncelle
-function updateProjectStats() {
-    const projectCounts = {
-        'bein-tisan': 8,
-        'hill-garden': 9,
-        'lotus-park': 9,
-        'saya-house': 16,
-        'saya-park-detay': 10,
-        'sezin-hanim': 8
-    };
-    
-    Object.keys(projectCounts).forEach(project => {
-        const statElement = document.querySelector(`#${project}-gallery`).closest('.project-card').querySelector('.stat-number');
-        if (statElement) {
-            statElement.textContent = projectCounts[project];
-        }
-    });
-}
